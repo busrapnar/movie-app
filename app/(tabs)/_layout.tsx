@@ -1,3 +1,6 @@
+import { icons } from '@/constants/icons'
+import { images } from '@/constants/images'
+import { Image, ImageBackground } from 'expo-image'
 import { Tabs } from 'expo-router'
 import React from 'react'
 import { StyleSheet } from 'react-native'
@@ -9,6 +12,34 @@ const _layout = () => {
                 name='index'
                 options={{
                     title: 'Home',
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => (
+                        <>
+                            <ImageBackground source={images.highlight} >
+                                <Image source={icons.home} tintColor="#151312" className='size-5' />
+                            </ImageBackground>
+                        </>
+                    )
+                }}
+            />
+            <Tabs.Screen
+                name='search'
+                options={{
+                    title: 'Search',
+                    headerShown: false
+                }}
+            />
+            <Tabs.Screen
+                name='profile'
+                options={{
+                    title: 'Profile',
+                    headerShown: false
+                }}
+            />
+            <Tabs.Screen
+                name='saved'
+                options={{
+                    title: 'Saved',
                     headerShown: false
                 }}
             />
